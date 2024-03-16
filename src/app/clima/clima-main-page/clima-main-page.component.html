@@ -1,0 +1,22 @@
+<button [routerLink]="['/']">Volver</button>
+<button [routerLink]="['/reactive']">Volver reactive</button>
+
+<h1>Clima de: {{ ciudad }}</h1>
+
+<div
+  class="spinner-border"
+  role="status"
+  *ngIf="clima === null; else ciudadElse"
+>
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+<ng-template #ciudadElse>
+  <div *ngIf="clima">
+    <h5 class="card-title">Temperatura: {{ clima.temp }}</h5>
+    <p class="card-text">Min: {{ clima.min_temp }} Max: {{ clima.max_temp }}</p>
+  </div>
+  <div *ngIf="!clima">
+    <h1 class="text-danger">Ciudad no encontrada</h1>
+  </div>
+</ng-template>

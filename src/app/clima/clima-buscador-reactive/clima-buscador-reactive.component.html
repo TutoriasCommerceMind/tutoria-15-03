@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+  <input
+    type="text"
+    placeholder="Ingrese una ciudad..."
+    formControlName="buscador"
+  />
+  <div *ngIf="form.get('buscador')?.invalid" class="text-danger">
+    Este campo es requerido y debe contener entre 3 y 50 caracteres
+  </div>
+  <button *ngIf="form.get('buscador')?.invalid" disabled>Buscar</button>
+  <button
+    *ngIf="!form.get('buscador')?.invalid"
+    [routerLink]="['/ciudad/', form.get('buscador')?.value]"
+  >
+    Buscar
+  </button>
+</form>

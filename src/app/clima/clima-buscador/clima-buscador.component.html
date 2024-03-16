@@ -1,0 +1,4 @@
+<input type="text" placeholder="Ingrese una ciudad..." [(ngModel)]="busqueda" />
+<button *ngIf="busqueda.length" [routerLink]="['/ciudad/', busqueda]">
+  Buscar
+</button>
